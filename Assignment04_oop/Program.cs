@@ -15,7 +15,13 @@ namespace Assignment04_oop
 
     #endregion
 
-    
+    #region Q02
+    //Overloading: same method name, different parameters, within the same class.
+
+    //Overriding: same method name and parameters, in base and derived classes.
+    #endregion
+
+
     internal class Program
     {
         static void Main(string[] args)
