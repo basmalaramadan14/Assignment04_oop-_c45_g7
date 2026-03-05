@@ -21,7 +21,13 @@ namespace Assignment04_oop
     //Overriding: same method name and parameters, in base and derived classes.
     #endregion
 
+    #region Q03
+    //virtual-override
 
+    //--virtual:keyword allows the method to be overridden
+    //--override:keyword changes the implementation of the method in
+    //the derived class while keeping the same signature.
+    #endregion
     internal class Program
     {
         static void Main(string[] args)
