@@ -28,11 +28,64 @@ namespace Assignment04_oop
     //--override:keyword changes the implementation of the method in
     //the derived class while keeping the same signature.
     #endregion
-    internal class Program
+    class Program
     {
+        static void ProcessTicket(Ticket t)
+        {
+            t?.PrintTicket();
+        }
+
         static void Main(string[] args)
         {
+            Cinema cinema = new Cinema();
+            cinema.Open();
 
+            Console.WriteLine("\n========== SetPrice Test ========== ");
+
+            Ticket test = new Ticket();
+            test.SetPrice(150);
+            Console.WriteLine($"Setting price directly: {test.Price}");
+
+            test.SetPrice(100, 1.5m);
+            Console.WriteLine($"Setting price with multiplier: 100 x 1.5 {test.Price}");
+
+            Console.WriteLine("\n========== All Tickets ==========");
+
+            StandardTicket std = new StandardTicket
+            {
+                TicketId = 1,
+                MovieName = "Inception",
+                SeatNumber = "A-5"
+            };
+            std.SetPrice(150);
+
+            VIPTicket vip = new VIPTicket
+            {
+                TicketId = 2,
+                MovieName = "Avengers",
+                LoungeAccess = true,
+                ServiceFee = 50
+            };
+            vip.SetPrice(200);
+
+            IMAXTicket imax = new IMAXTicket
+            {
+                TicketId = 3,
+                MovieName = "Dune",
+                Is3D = false
+            };
+            imax.SetPrice(180);
+
+            cinema.AddTicket(std);
+            cinema.AddTicket(vip);
+            cinema.AddTicket(imax);
+
+            cinema.PrintAllTickets();
+
+            Console.WriteLine("\n========= Process Single Ticket ==========");
+            ProcessTicket(vip);
+
+            cinema.Close();
         }
     }
 }
